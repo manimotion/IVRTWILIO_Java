@@ -10,7 +10,7 @@ public class RestAssuredTest {
 
         @BeforeClass
         public static void setup() {
-            RestAssured.baseURI = "http://localhost:8080";
+            RestAssured.baseURI = "http://localhost:8082";
         }
 
         @Test
@@ -21,7 +21,7 @@ public class RestAssuredTest {
                     .then()
                     .statusCode(200)
                     .and()
-                    .body("Response.Gather.Say[0]", equalTo("Hello. Press or say One for a joke, or Two for some music."))
+                    .body("Response.Gather.Say[0]", equalTo("Hello. Press or say One for a joke, Two for some music, or Three for information about our products."))
                     .and()
                     .body("Response.Say[0]", equalTo("Thanks for calling, have a great day"));
         }
@@ -48,6 +48,17 @@ public class RestAssuredTest {
                     .statusCode(200)
                     .and()
                     .body("Response.Play[0]", equalTo("http://demo.twilio.com/docs/classic.mp3"));
+        }
+        @Test
+        public void testHandleGatherResultWithDigitThree() {
+            RestAssured.given()
+                    .param("Digits", "3")
+                    .when()
+                    .post("/gatherResult")
+                    .then()
+                    .statusCode(200)
+                    .and()
+                    .body("Response.Say[0]", equalTo("Thank you for your interest in our products. Here's some information..."));
         }
     }
 

@@ -9,9 +9,6 @@
         <module name="twilio-java-handle-phone-calls" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="twilio-java-handle-phone-calls" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
