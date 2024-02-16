@@ -10,7 +10,7 @@ public class RestAssuredTest {
 
     @BeforeClass
     public static void setup() {
-        RestAssured.baseURI = "http://localhost:8082";
+        RestAssured.baseURI = "https://jl3xjd66-8082.use2.devtunnels.ms/";
     }
 
     @Test
